@@ -1,0 +1,86 @@
+.label.label-success.pull-right(ng-if="profileCtrl.isOnline")
+    | Raccoonline
+
+h1 {{ profileCtrl.user.name }}
+    small &nbsp; ({{ profileCtrl.user.username }})
+
+hr
+
+.row(ng-cloak)
+    .col-lg-3.col-md-3.col-sm-3.sidebar
+        img.img-thumbnail(ng-src="{{ profileCtrl.user.avatar }}" alt="{{ profileCtrl.user.name }}" width="300")
+
+        p
+
+        .text-center
+            button.btn.btn-large.btn-info Add this raccoon to Friends
+
+            p
+
+            p.criminal
+                small.text-muted
+                    | No raccoon on photo?
+
+                    br
+
+                    u
+                        a.text-muted(href="#") Set this criminal on fire!
+
+    .col-lg-9.col-md-9.col-sm-9.main
+        h4 Personal information
+
+        hr
+
+        .row
+            .col-lg-2.col-md-2.col-sm-6
+                .text-muted Phone:
+
+            .col-lg-10.col-md-10.col-sm-6
+                .text-left {{ profileCtrl.user.phone }}
+        .row
+            .col-lg-2.col-md-2.col-sm-6
+                .text-muted E-mail:
+
+            .col-lg-10.col-md-10.col-sm-6
+                .text-left {{ profileCtrl.user.email }}
+        .row
+            .col-lg-2.col-md-2.col-sm-6
+                .text-muted Web-site:
+
+            .col-lg-10.col-md-10.col-sm-6
+                a.text-left(href="http://{{ profileCtrl.user.website }}" target="_blank") {{ profileCtrl.user.website }}
+
+        hr
+
+        .row
+            .col-lg-2.col-md-2.col-sm-6
+                .text-muted Company:
+
+            .col-lg-10.col-md-10.col-sm-6
+                .text-left
+                    strong {{ profileCtrl.user.company.name }}
+                    .text-muted {{ profileCtrl.user.company.catchPhrase }}
+                    small.text-muted {{ profileCtrl.user.company.bs }}
+
+        hr
+
+        .row
+            .col-lg-2.col-md-2.col-sm-6
+                .text-muted Address:
+
+            .col-lg-10.col-md-10.col-sm-6
+                .text-left
+                    | {{ profileCtrl.user.address.zipcode }}, {{ profileCtrl.user.address.city }}
+                    br
+                    small {{ profileCtrl.user.address.street }}, {{ profileCtrl.user.address.suite }}
+                    br
+                    small
+                        a.text-muted(href="{{ profileCtrl.user.address.geo }}" target="_blank") Watch on Google Maps
+
+hr
+
+h4 User albums
+
+hr
+
+.row

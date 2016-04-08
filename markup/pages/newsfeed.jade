@@ -1,0 +1,25 @@
+h1 Newsfeed
+
+hr
+
+h4.loading.text-center.text-muted(ng-if="feedCtrl.posts.length === 0") Loading...
+
+.post.col-lg-12.col-md-12.col-sm-12(ng-if="feedCtrl.posts.length > 0" ng-repeat="post in feedCtrl.posts" ng-class="'post-'+$index" data-post-id="{{ ::post.id }}" data-user-id="{{ ::post.userId }}")
+    .pull-left.photo
+        a(ng-href="#/profile/{{ ::post.userId }}")
+            img.img-thumbnail(ng-src="/static/images/content/avatars/{{ ::post.userId }}.jpg" width="100" alt="{{ ::post.user.name }}")
+
+    .col-lg-9.col-md-9.col-sm-9
+        .details
+            small.text-muted
+                a(ng-href="#/profile/{{ ::post.userId }}") {{ ::post.user.name }}
+                | &nbsp; posted:
+
+        strong.title.text-capitalize {{ ::post.title }}
+
+        .text
+            small {{ ::post.body }}
+
+
+    .clearfix
+    hr(ng-if="!$last")
